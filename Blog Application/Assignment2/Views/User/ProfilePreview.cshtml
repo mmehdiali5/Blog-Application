@@ -1,0 +1,112 @@
+﻿
+@model Assignment2.Models.CredentialsUserForUpdate
+@{ string path = "/images/" + Model.imageName;}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>USER UPDATE PROFILE</title>
+
+    <!--BOOTSTRAP LIBRARY-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!--FONT AWESOME CDN FOR ICONS USAGE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--TO ENABLE REMOTE MODAL VALIDATION FOR USERNAME UNIQUENESS-->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+</head>
+
+<body style="background-color: rgb(0, 255, 255);">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-action="UserHome">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="gotoAbout">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="goToHome">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="ProfilePreview">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1 style="text-align: center;
+        border: 1px;
+        border-radius: 20px;
+        background: linear-gradient(to bottom, #0099ff 0%, #99ffcc 100%);
+        text-align: center;
+        margin: 20px
+    ">
+        USER PROFILE
+    </h1>
+
+    <div class="container"
+         style=" border: 1px;
+        border-radius: 20px;
+        background:linear-gradient(to bottom, #0099ff 0%, #99ffcc 100%);
+        width: 550px;
+        text-align: center;
+        margin-top: 100px;
+        padding: 20px
+    ">
+        <h2 style="text-align:center"> <img src="@path" style="border-radius:50%;height:50px;width:50px"/> @Model.username</h2>
+        <form method="get" asp-action="UpdateUser" asp-route-id="@Model.ID">
+
+            <div class="form-group">
+                <input class="form-control" asp-for="ID" type="hidden" />
+            </div>
+
+
+            <div class="form-group">
+                <i class="fa fa-user"></i>
+                <label asp-for="username">Username: </label>
+                <input class="form-control" asp-for="username" readonly />
+            </div>
+
+            <div class="form-group">
+                <i class="fa fa-key"></i>
+                <label asp-for="username">Password: </label>
+                <input class="form-control" asp-for="password" readonly />
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" asp-for="oldPassword" type="hidden" />
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" asp-for="newPassword" type="hidden" />
+            </div>
+
+            <div class="form-group">
+                <i class="fa fa-envelope"></i>
+                <label asp-for="email">Email: </label>
+                <input class="form-control" asp-for="email" type="email" readonly />
+            </div>
+
+            <div style="text-align:center">
+                <input class="btn btn-info" type="submit" value="CLICK TO EDIT PROFILE" />
+            </div>
+
+        </form>
+
+    </div>
+</body>
+
+</html>

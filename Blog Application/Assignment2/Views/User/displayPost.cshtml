@@ -1,0 +1,66 @@
+﻿@using  Assignment2.Models
+@model posts
+
+    @{ 
+    CredentialsUserForUpdate user = UserDatabase.getUser(Model.userId);
+    string path = "/images/" + user.imageName;
+    string username = user.username;
+    }
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>View POST </title>
+
+    <!--BOOTSTRAP LIBRARY-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color: rgb(204, 153, 255)">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-action="UserHome">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="gotoAbout">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="goToHome">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="ProfilePreview">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="card" style="margin:20px">
+
+            <div class="card-header">
+                <img src="@path" style="border-radius:50%;height:50px;width:50px" /> <b>@username</b>   @Model.date
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">@Model.title</h5>
+                <p class="card-text">@Model.content</p>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

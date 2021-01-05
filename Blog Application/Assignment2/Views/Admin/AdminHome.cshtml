@@ -1,0 +1,44 @@
+﻿@using  Assignment2.Models
+@model CredentialsAdmin
+
+@{/*MAIN PAGE FOR ADMIN*/ }
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>ADMIN HOME</title>
+
+    <!--BOOTSTRAP LIBRARY-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color: rgb(204, 153, 255)">
+
+    <h1 style="text-align: center;
+        background: linear-gradient(to bottom, #ff9933 0%, #ff6666 95%);
+        border: 1px;
+        border-radius: 20px;
+        margin:20px">
+        WELCOME TO ADMIN HOMEPAGE
+    </h1>
+
+    <div class="container" style=" text-align: center;
+         background: linear-gradient(to bottom, #ff9933 0%, #ff6666 95%);
+         border: 1px;
+         border-radius: 20px;
+         width: 350px;
+         margin-top:100px">
+
+        <a asp-action="registerUser" class="btn btn-dark" style="margin:20px">Register A USER</a><br>
+        <a asp-action="displayUsers" class="btn btn-dark" style="margin:20px">DISPLAY ALL USERS</a><br>
+        <a asp-action="goToHome"     class="btn btn-dark" style="margin:20px">Logout</a><br>
+
+    </div>
+
+</body>
+
+</html>

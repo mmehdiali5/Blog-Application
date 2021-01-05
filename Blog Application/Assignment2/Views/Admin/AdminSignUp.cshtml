@@ -1,0 +1,82 @@
+﻿@using  Assignment2.Models
+@model CredentialsAdmin
+
+@{/*SIGNUP PAGE FOR ADMIN*/ }
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>ADMIN SIGNUP</title>
+
+    <!--BOOTSTRAP LIBRARY-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!--FONT AWESOME CDN FOR ICONS USAGE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--TO ENABLE REMOTE MODAL VALIDATION FOR USERNAME UNIQUENESS-->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+    <!--ViewBag is used to display message for success-->
+    <script type="text/javascript">
+        if ('@ViewBag.SuccessMessage' != "") {
+            alert('@ViewBag.SuccessMessage');
+        }
+    </script>
+
+</head>
+
+<body style="background-color: rgb(102, 255, 153);">
+
+    <h1 style="text-align:center;
+        border: 1px;
+        border-radius: 20px;
+        background: linear-gradient(to bottom, #00ff99 0%, #00ff00 100%);
+        text-align: center;
+        margin:20px
+        ">
+        WELCOME TO ADMIN SIGN UP
+    </h1>
+
+    <div class="container" 
+        style="border: 1px;
+        border-radius: 20px;
+        background: linear-gradient(to bottom, #00ff99 0%, #00ff00 100%);
+        width: 550px;
+        text-align: center;
+        margin-top: 100px;
+        padding:20px
+        ">
+
+        <form method="post" asp-action="AdminSignUp">
+            <div class="form-group">
+                <i class="fa fa-user"></i>
+                <label asp-for="username">Username: </label>
+                <input class="form-control" asp-for="username" />
+                <span style="color:red" asp-validation-for="username"></span>
+            </div>
+
+            <div class="form-group">
+                <i class="fa fa-key"></i>
+                <label asp-for="password">Password: </label>
+                <input class="form-control" asp-for="password" type="password" />
+                <span style="color:red" asp-validation-for="password"></span>
+            </div>
+
+            <div style="text-align:center">
+                <input class="btn btn-success" type="submit" value="Register">
+            </div>
+
+        </form>
+
+        <a asp-action="goToHome" class="btn btn-success" style="margin:20px">HOME</a>
+    </div>
+</body>
+
+</html>

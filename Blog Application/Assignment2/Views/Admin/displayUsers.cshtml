@@ -1,0 +1,64 @@
+﻿@model List<Assignment2.Models.CredentialsUserForUpdate>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>DISPLAY USERS</title>
+
+    <!--BOOTSTRAP LIBRARY-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color: rgb(204, 153, 255);">
+
+    <h1 style="text-align: center;
+        background: linear-gradient(to bottom, #ff9933 0%, #ff6666 95%);
+        border: 1px;
+        border-radius: 10px;
+        margin:10px">
+        USERS INFO
+    </h1>
+
+    <div class="container" style=" text-align: center;
+         background: linear-gradient(to bottom, #ff9933 0%, #ff6666 95%);
+         border: 1px;
+         border-radius: 20px;
+         margin-top:100px">
+        <table class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (Assignment2.Models.CredentialsUserForUpdate user in Model)
+                {
+                    <tr>
+                        <td>@user.username</td>
+                        <td>@user.password</td>
+                        <td>@user.email</td>
+                        <td>
+                            <a asp-action="deleteUser" class="btn btn-danger" asp-route-id="@user.ID">Delete</a>
+                            <a asp-action="UpdateUser" class="btn btn-warning" asp-route-id="@user.ID">Update</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        </div>
+        <a asp-action="AdminHome" class="btn btn-dark" style="margin:100px">HOME</a>
+
+</body>
+
+</html>

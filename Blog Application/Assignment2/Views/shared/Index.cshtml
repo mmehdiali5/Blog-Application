@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>HOME</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <!--ViewBag is used to display message for success-->
+    <script type="text/javascript">
+        if ('@ViewBag.SuccessMessage' != "") {
+            alert('@ViewBag.SuccessMessage');
+        }
+    </script>
+</head>
+
+<body style="background-color: rgb(0, 153, 153)">
+
+    <div style="background: linear-gradient(to bottom, #006666 0%, #66ffcc 100%); border: 1px; border-radius: 20px;margin:20px">
+        <h1 style="text-align:center;color:white">WELCOME TO MINI FACEBOOK</h1>
+    </div>
+
+    <h5 style="text-align: center;color: white">We dont steal your data :-)</h5>
+
+    <div class="container" style="text-align: center;
+        margin-top: 50px;
+        background: linear-gradient(to bottom, #006666 0%, #66ffcc 100%);
+        border: 1px;
+        border-radius: 20px;
+        width:250px
+">
+        <h5 style="text-align: center;color: white">ADMIN PANEL</h5>
+        <a href="/Admin/AdminSignUp" class="btn btn-light" style="margin:20px">SIGN UP AS ADMIN</a><br>
+        <a href="/Admin/AdminLogin" class="btn btn-light" style="margin:20px">LOGIN AS ADMIN</a><br>
+    </div>
+
+    <div class="container" style="text-align: center;
+        margin-top: 50px;
+        background: linear-gradient(to bottom, #006666 0%, #66ffcc 100%);
+        border: 1px;
+        border-radius: 20px;
+        width:250px
+">
+        <h5 style="text-align: center;color: white">USER PANEL</h5>
+        <a href="/User/UserSignUp" class="btn btn-light" style="margin:20px">SIGN UP AS USER</a><br>
+        <a href="/User/UserLogin" class="btn btn-light" style="margin:20px">LOGIN AS USER</a><br>
+    </div>
+
+</body>
+
+</html>

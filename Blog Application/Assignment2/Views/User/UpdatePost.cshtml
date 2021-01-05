@@ -1,0 +1,57 @@
+﻿@using  Assignment2.Models
+@model posts
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CREATE POST</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-action="UserHome">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="gotoAbout">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="goToHome">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="ProfilePreview">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1 style="text-align:center">UPDATE YOUR POST</h1>
+
+    <div class="container">
+        <form method="post" asp-action="updatePost">
+
+            <div class="form-group">
+                <label asp-for="title">Title: </label>
+                <input class="form-control" asp-for="title" />
+                <span style="color:red" asp-validation-for="title"></span>
+            </div>
+            <br>
+            <label asp-for="content">Content:</label><br>
+
+            <textarea rows="10" cols="100" asp-for="content"></textarea><br>
+            <span style="color:red" asp-validation-for="content"></span><br>
+
+            <input type="submit" class="btn btn-outline-info" value="Post">
+        </form>
+    </div>
+
+</body>
+</html>
